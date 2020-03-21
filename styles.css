@@ -1,0 +1,155 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap');
+:root {
+    --green: #2dfb4c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* site styles */
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+    max-width: 100%;
+    width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.main-header {
+    margin-bottom: 20px;
+    padding: 2rem 3rem;
+    background: #f8f8f8;
+    display: flex;
+}
+
+.main-header .main-header-container {
+    flex-grow: 1;
+}
+
+.main-header .search-form {
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 10rem;
+    flex-grow: 0;
+}
+
+.main-header .search-form input[type='search'] {
+    padding: 4px 10px;
+}
+
+.main-header h1 {
+    margin-bottom: 0;
+}
+
+.general-cases li {
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    /* background: #f8f8f8; */
+    margin-bottom: 18px;
+    box-shadow: 1px 3px 8px #18181811;
+}
+
+.general-cases .label {
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.figure {
+    background: #2dfb4c;
+    /* color: white; */
+    padding: 3px 8px;
+}
+
+@media screen and (min-width:600px) {
+    .general-cases {
+        display: flex;
+        justify-content: space-around;
+    }
+    .general-cases li {
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        margin: 0 8px;
+    }
+    .general-cases li .label {
+        margin-bottom: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* country list */
+
+.country-stats {
+    margin-top: 2rem;
+}
+
+.country-stats-header {
+    padding-left: 2rem;
+}
+
+.country-list {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 10px;
+}
+
+.country-list-head-container {
+    background: var(--green);
+}
+
+.country-list-head-content th {
+    text-align: left;
+    padding: 1rem 10px;
+}
+
+.country-list-head-content th:nth-child(2),
+.country-list-body-content td:nth-child(2) {
+    width: 25%;
+}
+
+.country-list-body-item td {
+    padding: 1rem 10px;
+}
+
+.country-list-body-item:nth-child(even) {
+    background: #f8f8f8;
+}
+
+@media screen and (min-width:960px) {
+    .country-stats-header {
+        padding-left: 0;
+    }
+}
