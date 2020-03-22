@@ -48,20 +48,22 @@
                 <p><span class="affected-countries">20</span> countries have been affected so far</p>
             </header>
 
-            <table class="country-list">
-                <thead class="country-list-head-container">
-                    <tr class="country-list-head-content">
-                        <th>#</th>
-                        <th>Country</th>
-                        <th>Cases</th>
-                        <th>Deaths</th>
-                        <th>Recovered</th>
-                    </tr>
-                </thead>
-                <tbody class="country-list-body">
-
-                </tbody>
-            </table>
+            <div style="overflow-x: auto; overflow-y: auto; height: 300px;">
+                <table class="country-list">
+                    <thead class="country-list-head-container">
+                        <tr class="country-list-head-content">
+                            <th>#</th>
+                            <th>Country</th>
+                            <th>Cases</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                        </tr>
+                    </thead>
+                    <tbody class="country-list-body">
+    
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- <progress-bar level="90"></progress-bar> -->
@@ -72,7 +74,22 @@
     </div>
 
     <script src="main.js"></script>
-    <!-- <script src="es6-test.js"></script> -->
+
+    <script>
+        // serviceWorker registration
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register('/sw.js')
+                .then(function(reg){
+                    console.log('Yawaah', reg);
+                }).catch(function(err){
+                    console.log('HmmmHmm!', err);
+                })
+            })
+        }
+        
+    </script>
+
 
 </body>
 
