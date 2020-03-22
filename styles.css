@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap');
 :root {
     --green: #2dfb4c;
+    --shadow: 1px 3px 8px #18181811;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -43,11 +48,25 @@ p {
     line-height: 1.5;
 }
 
+.hidden {
+    display: none;
+}
+
+.light {
+    background: var(--green);
+}
+
+
+/* header */
+
 .main-header {
     margin-bottom: 20px;
     padding: 2rem 3rem;
     background: #f8f8f8;
     display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
 }
 
 .main-header .main-header-container {
@@ -55,14 +74,17 @@ p {
 }
 
 .main-header .search-form {
+    background: green;
+    width: 20rem;
     max-width: 100%;
     box-sizing: border-box;
-    width: 10rem;
-    flex-grow: 0;
+    flex: 1;
 }
 
-.main-header .search-form input[type='search'] {
-    padding: 4px 10px;
+.main-header .search-form-input {
+    padding: 8px 10px;
+    border: 2px solid var(--green);
+    width: 100%;
 }
 
 .main-header h1 {
@@ -75,7 +97,7 @@ p {
     padding: 2rem;
     /* background: #f8f8f8; */
     margin-bottom: 18px;
-    box-shadow: 1px 3px 8px #18181811;
+    box-shadow: var(--shadow);
 }
 
 .general-cases .label {
@@ -146,6 +168,47 @@ p {
 
 .country-list-body-item:nth-child(even) {
     background: #f8f8f8;
+}
+
+
+/* Search results */
+
+.search-form {
+    position: relative;
+}
+
+.search-result {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    background-color: #fff;
+    padding: 8px;
+    box-shadow: var(--shadow);
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.search-featured-item {
+    list-style: none;
+    background: #fff;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #d5d5d5;
+    width: 100%;
+}
+
+.search-featured-item a {
+    text-decoration: none;
+    color: currentColor;
+    display: block;
+    padding: 6px 14px;
+}
+
+.search-featured-item a:hover,
+.search-featured-item a:active {
+    cursor: pointer;
+    background: var(--green);
+    border-color: transparent;
 }
 
 @media screen and (min-width:960px) {

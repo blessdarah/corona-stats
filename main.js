@@ -1,5 +1,10 @@
 // initialize feather icons
-feather.replace()
+// feather.replace()
+
+// getData from local storage
+if (localStorage.getItem('stats')) {
+    getDataFromLocalStorage(localStorage.getItem('stats'));
+}
 
 // general stats
 const globalEndpoint = "https://coronavirus-19-api.herokuapp.com/all";
@@ -11,7 +16,7 @@ fetch(globalEndpoint)
     .catch(error => console.log(error));
 
 function updateGlobalStats(data) {
-    console.log(data);
+    // console.log(data);
     const currentCases = $(".cases-count"),
         deathCases = $(".death-count"),
         recoveredCases = $(".recovered-count");
@@ -30,9 +35,12 @@ fetch(countryEndpoint)
     .catch(error => console.log(error));
 
 function updateCountryStats(data) {
+    localStorage.setItem('stats', JSON.stringify(data));
+    getDataFromLocalStorage('stats');
     data.forEach((item, index) => {
         const li = document.createElement('tr');
         li.className = 'country-list-body-item';
+        li.id = item.country;
         li.innerHTML = `<td>${index + 1}</td>
                         <td>${item.country}</td>
                         <td>${item.cases}</td>
@@ -43,4 +51,69 @@ function updateCountryStats(data) {
     });
     let totalAffectedCountries = $('.affected-countries');
     totalAffectedCountries.textContent = data.filter(item => item.cases > 0).length;
+}
+
+function getDataFromLocalStorage(cachedData) {
+    // console.log(cachedData);
+    return localStorage.getItem(cachedData);
+}
+
+/* Handle site search functionality */
+// get search input
+
+const statsInJson = JSON.parse(getDataFromLocalStorage('stats'));
+
+
+let sortedListOfCountries = statsInJson.sort(
+    (countryA, countryB) => countryA.country > countryB.country
+);
+
+
+const searchBar = document.querySelector('.search-form-input');
+
+searchBar.addEventListener('keyup', event => {
+    if (event.target.value != '' && event.key !== 'Enter') {
+        document.querySelector('.search-result').classList.remove('hidden');
+        const searchResult = getCountriesThatInclude(event.target.value);
+        populateSearchResults(searchResult);
+    } else {
+        event.target.value = '';
+        document.querySelector('.search-result').classList.add('hidden');
+
+    }
+});
+
+searchBar.addEventListener('blur', () => {
+    document.querySelector('.search-result').classList.add('hidden');
+    document.querySelector('.search-form-input').value = '';
+});
+
+function getCountriesThatInclude(stringPattern) {
+    return sortedListOfCountries.filter(country =>
+        country.country.toLowerCase().includes(stringPattern)
+    );
+}
+
+// populate search results
+function populateSearchResults(searchContent) {
+    const searchResultsContainer = document.querySelector('.search-result');
+    // empty results container first
+    searchResultsContainer.innerHTML = '';
+
+
+    searchContent.map(data => {
+        const li = document.createElement('li');
+        li.classList.add('search-featured-item');
+        li.innerHTML = `<a href="#${data.country}" data-country="${data.country}" onclick="getCountryStats(event)">
+                            <h5 class="country">${data.country}</h5>
+                            <p><strong>Cases: </strong> <span class="cases">${data.cases}</span></p>
+                        </a>`;
+
+        searchResultsContainer.appendChild(li);
+    });
+}
+
+// get country stats
+function getCountryStats(event) {
+    console.log(event.target);
 }
