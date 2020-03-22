@@ -2,11 +2,6 @@ const stats = localStorage.getItem("stats");
 
 const statsInJson = JSON.parse(stats);
 
-const log = item => console.log(item);
-// log(statsInJson);
-
-// foreach loop
-// statsInJson;
 
 let sortedListOfCountries = statsInJson.sort(
     (countryA, countryB) => countryA.country > countryB.country

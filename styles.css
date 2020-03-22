@@ -6,6 +6,10 @@
     --shadow: 1px 3px 8px #18181811;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -48,6 +52,10 @@ p {
     display: none;
 }
 
+.light {
+    background: var(--green);
+}
+
 
 /* header */
 
@@ -57,6 +65,8 @@ p {
     background: #f8f8f8;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
 }
 
 .main-header .main-header-container {
@@ -181,15 +191,21 @@ p {
 
 .search-featured-item {
     list-style: none;
-    padding: 6px 14px;
     background: #fff;
     margin-bottom: 4px;
     border-bottom: 1px solid #d5d5d5;
     width: 100%;
 }
 
-.search-featured-item:hover,
-.search-featured-item:active {
+.search-featured-item a {
+    text-decoration: none;
+    color: currentColor;
+    display: block;
+    padding: 6px 14px;
+}
+
+.search-featured-item a:hover,
+.search-featured-item a:active {
     cursor: pointer;
     background: var(--green);
     border-color: transparent;

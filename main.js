@@ -2,7 +2,9 @@
 // feather.replace()
 
 // getData from local storage
-getDataFromLocalStorage(localStorage.getItem('stats'));
+if (localStorage.getItem('stats')) {
+    getDataFromLocalStorage(localStorage.getItem('stats'));
+}
 
 // general stats
 const globalEndpoint = "https://coronavirus-19-api.herokuapp.com/all";
@@ -38,6 +40,7 @@ function updateCountryStats(data) {
     data.forEach((item, index) => {
         const li = document.createElement('tr');
         li.className = 'country-list-body-item';
+        li.id = item.country;
         li.innerHTML = `<td>${index + 1}</td>
                         <td>${item.country}</td>
                         <td>${item.cases}</td>
@@ -78,7 +81,12 @@ searchBar.addEventListener('keyup', event => {
         document.querySelector('.search-result').classList.add('hidden');
 
     }
-})
+});
+
+searchBar.addEventListener('blur', () => {
+    document.querySelector('.search-result').classList.add('hidden');
+    document.querySelector('.search-form-input').value = '';
+});
 
 function getCountriesThatInclude(stringPattern) {
     return sortedListOfCountries.filter(country =>
@@ -96,9 +104,16 @@ function populateSearchResults(searchContent) {
     searchContent.map(data => {
         const li = document.createElement('li');
         li.classList.add('search-featured-item');
-        li.innerHTML = `<h5 class="country">${data.country}</h5>
-    <p><strong>Cases: </strong> <span class="cases">${data.cases}</span></p>`;
+        li.innerHTML = `<a href="#${data.country}" data-country="${data.country}" onclick="getCountryStats(event)">
+                            <h5 class="country">${data.country}</h5>
+                            <p><strong>Cases: </strong> <span class="cases">${data.cases}</span></p>
+                        </a>`;
 
         searchResultsContainer.appendChild(li);
     });
+}
+
+// get country stats
+function getCountryStats(event) {
+    console.log(event.target);
 }
