@@ -1,6 +1,3 @@
-// initialize feather icons
-// feather.replace()
-
 // getData from local storage
 if (localStorage.getItem('stats')) {
     getDataFromLocalStorage(localStorage.getItem('stats'));
