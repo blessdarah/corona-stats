@@ -24,28 +24,37 @@
             </form>
         </header>
 
-        <h2><i data-feather="activity"></i> General Stats</h2>
-        <ul class="general-cases">
-            <li><span class="label"><i data-feather="alert-circle"></i> Cases</span>
-                <span class="figure cases-count"></span>
-            </li>
+        <section class="global-stats">
+            <header class="section-header">
+                <h2 class="general-stats-heading"><i data-feather="globe"></i> General Stats</h2>
+                <p>Pro tip: Remember to always wash your hands.</p>
+            </header>
+
+            <!-- general stats here -->
+            <ul class="general-cases">
+                <li><span class="label"><i data-feather="alert-circle"></i> Cases</span>
+                    <span class="figure highlight-orange cases-count"></span>
+                </li>
 
 
-            <li><span class="label"><i data-feather="frown"></i> Deaths</span>
-                <span class="figure death-count"></span>
-            </li>
+                <li><span class="label"><i data-feather="frown"></i> Deaths</span>
+                    <span class="figure highlight-red death-count"></span>
+                </li>
 
 
-            <li><span class="label"><i data-feather="user-check"></i> Recovered</span>
-                <span class="figure recovered-count"></span>
-            </li>
+                <li><span class="label"><i data-feather="user-check"></i> Recovered</span>
+                    <span class="figure highlight-green recovered-count"></span>
+                </li>
 
-        </ul>
+            </ul>
 
+        </section>
+
+        <!-- country stats -->
         <section class="country-stats">
-            <header class="country-stats-header">
-                <h2>Country stats</h2>
-                <p><span class="affected-countries">20</span> countries have been affected so far</p>
+            <header class="section-header country-stats-header">
+                <h2><i data-feather="activity"></i> Country stats</h2>
+                <p><strong class="affected-countries">20</strong> countries have been affected so far</p>
             </header>
 
             <table class="country-list">
