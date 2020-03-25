@@ -19,7 +19,6 @@ html {
     box-sizing: border-box;
 }
 
-
 /* site styles */
 
 body {
@@ -68,7 +67,6 @@ section {
     background: var(--green);
 }
 
-
 /* header */
 
 .main-header {
@@ -82,6 +80,24 @@ section {
     top: 0;
     box-shadow: var(--shadow);
     text-align: center;
+}
+
+.main-h {
+    display: flex;
+}
+
+#cursor {
+    background-color: white;
+    width: 20px;
+    height: 50px;
+    animation-name: cursor;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cursor {
+    from {background-color: white}
+    to {background-color: #343a40}
 }
 
 .main-header .main-header-container {
@@ -139,6 +155,17 @@ section {
     background: var(--red);
 }
 
+li {
+    width: 150px;
+    height: 150px;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+li:hover {
+    width: 150px;
+    height: 150px;
+    transform: rotate(360deg);
+}
 
 /* country list */
 
@@ -168,13 +195,11 @@ section {
     padding: 1rem 10px;
 }
 
-.country-list-head-content th:nth-child(2),
-.country-list-body-content td:nth-child(2) {
+.country-list-head-content th:nth-child(2), .country-list-body-content td:nth-child(2) {
     width: 25%;
 }
 
-.country-list-head-content th:nth-child(1),
-.country-list-body-content td:nth-child(1) {
+.country-list-head-content th:nth-child(1), .country-list-body-content td:nth-child(1) {
     width: 50px;
 }
 
@@ -185,7 +210,6 @@ section {
 .country-list-body-item:nth-child(even) {
     background: #f8f8f8;
 }
-
 
 /* Search results */
 
@@ -221,12 +245,10 @@ section {
     padding: 6px 14px;
 }
 
-.search-featured-item a:hover,
-.search-featured-item a:active {
+.search-featured-item a:hover, .search-featured-item a:active {
     cursor: pointer;
     background: var(--green);
 }
-
 
 /* tablets and above */
 
@@ -261,7 +283,6 @@ section {
         margin-top: 0;
     }
 }
-
 
 /* Desktops */
 
