@@ -24,6 +24,7 @@ const countryEndpoint =
 fetch(countryEndpoint)
     .then(response => response.json())
     .then(data => updateCountryStats(data))
+    .then(removeLoader)
     .catch(error => console.log(error));
 
 function updateCountryStats(data) {
@@ -49,6 +50,11 @@ function updateCountryStats(data) {
 function getDataFromLocalStorage(cachedData) {
     // console.log(cachedData);
     return localStorage.getItem(cachedData);
+}
+
+// remove loader function 
+function removeLoader() {
+    document.querySelector(".loader").style.display = 'none';
 }
 
 /* Handle site search functionality */
@@ -97,16 +103,18 @@ function populateSearchResults(searchContent) {
     searchContent.map(data => {
         const li = document.createElement('li');
         li.classList.add('search-featured-item');
-        li.innerHTML = `<a href="#" data-country="${data.country}" onclick="getCountryStats(event)">
+
+        li.innerHTML = `<a data-country="${data.country}">
                             <h5 class="country">${data.country}</h5>
                             <p><strong>Cases: </strong> <span class="cases">${data.cases}</span></p>
                         </a>`;
+        li.querySelector('a').addEventListener('click', () => alert('working'));
 
         searchResultsContainer.appendChild(li);
     });
 }
 
 // get country stats
-function get(event) {
+function getCountryStats(country) {
     alert('clicked');
 }

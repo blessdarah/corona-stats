@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <ul class="loader">
+        <li class="loader-circle"></li>
+        <li class="loader-circle"></li>
+        <li class="loader-circle"></li>
+    </ul>
     <div class="wrapper">
         <header class="main-header">
             <div class="main-header-container">
@@ -69,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody class="country-list-body">
-    
+
                     </tbody>
                 </table>
             </div>
@@ -91,17 +96,16 @@
 
     <script>
         // serviceWorker registration
-        if('serviceWorker' in navigator) {
-            window.addEventListener('load', function(){
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js')
-                .then(function(reg){
-                    console.log('Yawaah', reg);
-                }).catch(function(err){
-                    console.log('HmmmHmm!', err);
-                })
+                    .then(function(reg) {
+                        console.log('Yawaah', reg);
+                    }).catch(function(err) {
+                        console.log('HmmmHmm!', err);
+                    })
             })
         }
-        
     </script>
 
 
