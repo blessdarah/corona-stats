@@ -25,6 +25,10 @@
     </ul>
     <div class="wrapper">
         <header class="site-header">
+
+            <span class="burger-container"><label for="menu" id="burger-icon"><i data-feather="menu"></i></label></span>
+            <input type="checkbox" id="menu" name="menu">
+
             <div class="main-header">
                 <div class="main-header-container">
                     <img src="assets/covid-19-logo.png" alt="Covit-19 logo" id="logo">
@@ -37,10 +41,13 @@
                     </ul>
                 </form>
             </div>
-            <nav class="navbar">
-                <a href="index.html" class="navbar-link">Home</a>
-                <a href="news.html" class="navbar-link">News</a>
-            </nav>
+            <div class="navigation">
+                <nav class="navbar">
+                    <a href="index.html" class="navbar-link active">Home</a>
+                    <a href="news.html" class="navbar-link">News</a>
+                </nav>
+            </div>
+
         </header>
 
         <section class="global-stats">

@@ -7,25 +7,44 @@
     <title>Corona-updates</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/news.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
+    <ul class="loader">
+        <li class="loader-circle"></li>
+        <li class="loader-circle"></li>
+        <li class="loader-circle"></li>
+    </ul>
     <div class="wrapper">
-        <div class="details">
-            <form id="search">
-                <input type="search" name="news" data-search-bar placeholder="Search for articles" />
-                <input type="submit" class="search" value="search" />
-            </form>
-
-            <div>
-                <p><strong>Created by: </strong>Bless Darah</p>
-                <p><em>Learning how to use the fetch API</em></p>
+        <header class="site-header">
+            <span class="burger-container"><label for="menu" id="burger-icon"><i data-feather="menu"></i></label></span>
+            <input type="checkbox" id="menu" name="menu">
+            <div class="main-header">
+                <div class="main-header-container">
+                    <img src="assets/covid-19-logo.png" alt="Covit-19 logo" id="logo">
+                    <p>By: <em>Bless Darah</em></p>
+                </div>
+                <form id="search" class="search-form">
+                    <input type="search" name="news" class="search-form-input" data-search-bar placeholder="Search latest news" />
+                </form>
             </div>
-        </div>
+            <div class="navigation">
+                <nav class="navbar">
+                    <a href="index.html" class="navbar-link">Home</a>
+                    <a href="news.html" class="navbar-link active">News</a>
+                </nav>
+            </div>
+        </header>
         <div class="container"></div>
     </div>
 </body>
+<script>
+    // initialize feather icons
+    feather.replace()
+</script>
 
+<script src="js/main.js"></script>
 <script src="js/news.js"></script>
 
 </html>

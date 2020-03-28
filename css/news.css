@@ -1,15 +1,29 @@
+p {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+}
+
 .post {
-    margin-bottom: 100px;
+    margin: 0 auto 2rem;
+    width: 90%;
+    padding: 0 0 .6rem 0;
+    border-bottom: 1px solid var(--green);
 }
 
-.post h1 {
-    color: maroon;
-    margin-bottom: -10px;
+.news-title {
+    font-size: 1rem;
+    position: relative;
+    background: var(--green);
+    padding: .4rem 8px;
+    box-sizing: border-box;
 }
 
-.post h5 {
+.news-author {
     line-height: 21px;
-    margin-bottom: 4px;
+    margin-bottom: 14px;
+    background: var(--light);
+    display: inline-block;
+    padding: 4px 8px;
 }
 
 .post img {
@@ -17,17 +31,24 @@
     width: 100%;
     height: auto;
     padding: 2px;
-    border: 1px solid silver;
-    border-radius: 4px;
+    border: 1px dotted var(--light);
+    /* filter: sepia(10); */
 }
 
 .read-more {
-    color: maroon;
+    margin-top: .3rem;
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--green);
     text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
 }
 
 .read-more:hover {
-    text-decoration: underline;
+    box-shadow: var(--shadow);
+    background: var(--orange);
+    opacity: .9;
 }
 
 .author {
@@ -36,60 +57,8 @@
     color: silver;
 }
 
-#search {
-    position: sticky;
-    top: 20px;
-}
-
-[data-search-bar] {
-    height: 25px;
-    border: 1px solid #d5d5d5;
-    border-radius: 4px;
-    padding: 4px 10px;
-    margin-bottom: 8px;
-}
-
-.search {
-    padding: 4px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    background: maroon;
-    color: white;
-    outline: none;
-}
-
-.search:hover {
-    box-shadow: 1px 1px 3px 1px rgba(255, 100, 0, 0.3);
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-}
-
-.search:active {
-    box-shadow: 1px 1px 2px inset rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
-}
-
-@media screen and (max-width: 500px) {
-    body {
-        width: 95%;
-        flex-direction: column;
-        margin-top: 0;
-    }
-    .form {
-        margin-bottom: 0;
-        opacity: 0;
-    }
-    .details {
-        background: white;
-        padding: 8px 0;
-        width: 100%;
-        top: 0;
-        visibility: hidden;
-    }
-    .details:hover {
-        visibility: visible;
-    }
-    .details>div {
-        display: none;
+@media screen and (min-width: 600px) {
+    .post {
+        width: 70%;
     }
 }

@@ -16,6 +16,7 @@ const changeUrl = searchString =>
     `https://newsapi.org/v2/everything?q=${searchString}&apiKey=${apiKey}`;
 
 const addContent = data => {
+    document.querySelector(".loader").style.display = "none";
     const { articles } = data;
     console.log(articles[0]);
     articles.forEach(article => createPost(article));
@@ -30,10 +31,7 @@ const createPost = newsItem => {
         <h1 class="news-title">${newsItem.title}</h1>
         <p class="news-author"><strong>Written by:</strong> <em>${newsItem.author}</em></p>
         <p class="description">${newsItem.description}</p>
-        <div class="content">
-            ${newsItem.content}
-        </div>
-        <a href="${newsItem.url}" class="read-more">read more</a>
+        <a href="${newsItem.url}" target="_blank" class="read-more">go read it</a>
       </section>
   `;
 

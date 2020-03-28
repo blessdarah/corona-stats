@@ -6,6 +6,8 @@
     --dark-green: #1db33e;
     --orange: #fbdc2d;
     --red: #fb342d;
+    --dark: #181818;
+    --light: #f8f8f8;
     --shadow: 1px 3px 8px #18181811;
 }
 
@@ -79,17 +81,46 @@ img {
 #logo {
     max-width: 100%;
     height: auto;
-    width: 200px;
+    width: 60px;
     margin-top: -50px;
 }
 
 
 /* navbar */
 
+#menu {
+    display: none;
+}
+
+#menu:checked~.navigation {
+    display: block;
+}
+
+.burger-container {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2px 4px;
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #fff;
+}
+
+.burger-container:hover {
+    cursor: pointer;
+}
+
+.navigation {
+    display: none;
+    background: #fff;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
 .navbar {
     display: inline-flex;
     padding-bottom: 4px;
-    border-bottom: 2px solid var(--orange);
     position: sticky;
     top: 300px;
 }
@@ -97,7 +128,7 @@ img {
 .navbar-link {
     padding: 8px 1rem;
     text-align: center;
-    background: var(--green);
+    background: var(--light);
     text-decoration: none;
     color: #181818;
     font-weight: bold;
@@ -106,6 +137,10 @@ img {
 }
 
 .navbar-link:hover {
+    background: var(--orange);
+}
+
+.navbar-link.active {
     background: var(--orange);
 }
 
@@ -175,15 +210,18 @@ img {
 
 /* header */
 
-.main-header {
+.site-header {
     z-index: 1000;
-    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+}
+
+.main-header {
+    margin-bottom: 0;
     padding: 2rem 3rem;
     background: #f8f8f8;
     display: flex;
     flex-direction: column;
-    position: sticky;
-    top: 0;
     box-shadow: var(--shadow);
     text-align: center;
 }
@@ -335,6 +373,16 @@ img {
 /* tablets and above */
 
 @media screen and (min-width:600px) {
+    #logo {
+        width: 100px;
+    }
+    .burger-container {
+        display: none;
+    }
+    .navigation {
+        display: block;
+        padding-left: .5rem;
+    }
     section {
         margin: 4rem 0;
     }
@@ -370,6 +418,9 @@ img {
 /* Desktops */
 
 @media screen and (min-width:960px) {
+    .navigation {
+        padding-left: 0;
+    }
     .country-stats-header {
         padding-left: 0;
     }
