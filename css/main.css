@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap');
 :root {
     --green: #2dfb4c;
-    --green: #2dfb4c;
+    --dark-green: #1db33e;
     --orange: #fbdc2d;
     --red: #fb342d;
     --shadow: 1px 3px 8px #18181811;
@@ -55,6 +55,11 @@ section {
     margin: 3rem 0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .section-header {
     margin-bottom: 1rem;
     padding: 0 0 0 1.5rem;
@@ -66,6 +71,42 @@ section {
 
 .light {
     background: var(--green);
+}
+
+
+/* logo */
+
+#logo {
+    max-width: 100%;
+    height: auto;
+    width: 200px;
+    margin-top: -50px;
+}
+
+
+/* navbar */
+
+.navbar {
+    display: inline-flex;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--orange);
+    position: sticky;
+    top: 300px;
+}
+
+.navbar-link {
+    padding: 8px 1rem;
+    text-align: center;
+    background: var(--green);
+    text-decoration: none;
+    color: #181818;
+    font-weight: bold;
+    margin-right: 8px;
+    transition: 300ms background ease-in-out;
+}
+
+.navbar-link:hover {
+    background: var(--orange);
 }
 
 
